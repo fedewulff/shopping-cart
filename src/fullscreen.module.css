@@ -1,0 +1,40 @@
+.flex {
+  display: flex;
+  gap: 4rem;
+  padding: 0.75rem;
+  height: 100svh;
+}
+
+.navBar {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 2rem 3rem;
+  border-radius: 1rem;
+  background: #0595b9;
+}
+
+h1 {
+  margin-bottom: 2rem;
+  color: #f8f0e3;
+}
+
+a {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  width: fit-content;
+  text-decoration: none;
+  font-size: 1.5rem;
+  color: #f8f0e3;
+}
+
+svg {
+  width: 2.5rem;
+  fill: #f8f0e3;
+}
+
+svg,
+span {
+  pointer-events: none;
+}

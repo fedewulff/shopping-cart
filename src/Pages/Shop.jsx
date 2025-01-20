@@ -5,6 +5,7 @@ function ShopPage() {
   const [products, setProducts] = useState(null);
   const [errorMessage, setErrorMessage] = useState(null);
   const [loadingProducts, setLoadingProducts] = useState(true);
+  const [productQuantity, setProductQuantity] = useState([0, 0, 0, 0, 0, 0, 0, 0, 0]);
 
   useEffect(() => {
     (async function getProductsFromAPI() {
@@ -29,20 +30,29 @@ function ShopPage() {
   if (loadingProducts) return <p>Loading ...</p>;
   if (errorMessage) return <p>An error happened.</p>;
   return (
-    <div className={stlyes.card}>
-      <img src={products[0].image} alt="" />
-      <div className={stlyes.cardInfo}>
-        <div className={stlyes.cardTitleAndCounter}>
-          <h3>{products[0].title}</h3>
-          <div>
-            <div className={stlyes.counterCountainer}>
-              <button>&minus;</button>
-              <div>0</div>
-              <button>&#43;</button>
+    <div className={stlyes.fullContainer}>
+      <h2 className={stlyes.h2style}>Products</h2>
+      <div className={stlyes.grid}>
+        {products.map((product) => {
+          return (
+            <div className={stlyes.card}>
+              <img src={product.image} alt="" />
+              <div className={stlyes.cardInfo}>
+                <div className={stlyes.cardTitleAndCounter}>
+                  <h3>{product.title}</h3>
+                  <div>
+                    <div className={stlyes.counterCountainer}>
+                      <button>&minus;</button>
+                      <div>0</div>
+                      <button>&#43;</button>
+                    </div>
+                  </div>
+                </div>
+                <button className={stlyes.addToCart}>Add to cart</button>
+              </div>
             </div>
-          </div>
-        </div>
-        <button className={stlyes.addToCart}>Add to cart</button>
+          );
+        })}
       </div>
     </div>
   );

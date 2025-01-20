@@ -9,8 +9,8 @@ function FullScreen() {
   const { name } = useParams();
 
   function onHover(e) {
-    e.target.children[0].style.fill = `#FF6700`;
-    e.target.children[1].style.color = `#FF6700`;
+    e.target.children[0].style.fill = `#bab86c`;
+    e.target.children[1].style.color = `#bab86c`;
   }
   function offHover(e) {
     e.target.children[0].style.fill = `#f8f6f0`;

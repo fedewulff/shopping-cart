@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import stlyes from "../shop.module.css";
 
 function ShopPage() {
   const [products, setProducts] = useState(null);
@@ -14,7 +15,7 @@ function ShopPage() {
           throw new Error(`HTTP error: Status ${allNineProducts.status}`);
         }
         const allNineProductsJson = await allNineProducts.json();
-        // console.log(allNineProductsJson);
+        console.log(allNineProductsJson);
         setProducts(allNineProductsJson);
       } catch (error) {
         // setPokemon(null);
@@ -25,9 +26,26 @@ function ShopPage() {
     })();
   }, []);
 
-  if (loadingProducts) return <p>Loading pokemon...</p>;
-  if (errorMessage) return <p>An error happened. No pokemon visible</p>;
-  return <div>{products[0].title}</div>;
+  if (loadingProducts) return <p>Loading ...</p>;
+  if (errorMessage) return <p>An error happened.</p>;
+  return (
+    <div className={stlyes.card}>
+      <img src={products[0].image} alt="" />
+      <div className={stlyes.cardInfo}>
+        <div className={stlyes.cardTitleAndCounter}>
+          <h3>{products[0].title}</h3>
+          <div>
+            <div className={stlyes.counterCountainer}>
+              <button>&minus;</button>
+              <div>0</div>
+              <button>&#43;</button>
+            </div>
+          </div>
+        </div>
+        <button className={stlyes.addToCart}>Add to cart</button>
+      </div>
+    </div>
+  );
 }
 
 export default ShopPage;

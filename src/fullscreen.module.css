@@ -1,3 +1,8 @@
+@font-face {
+  font-family: font;
+  src: url("../fonts/Lexend_Deca/LexendDeca-VariableFont_wght.ttf");
+}
+
 .flex {
   display: flex;
   gap: 4rem;
@@ -12,6 +17,8 @@
   padding: 2rem 3rem;
   border-radius: 1rem;
   background: #0595b9;
+  font-family: font, sans-serif;
+  box-shadow: 0px 5px 10px rgb(83, 83, 83);
 }
 
 h1 {

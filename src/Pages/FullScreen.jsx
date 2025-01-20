@@ -8,12 +8,6 @@ import { NavLink } from "react-router-dom";
 function FullScreen() {
   const { name } = useParams();
 
-  //   const svg = document.querySelector("svg");
-  //   if (svg) {
-  //     console.log(svg);
-  //     svg.style.fill = "red";
-  //   }
-
   function onHover(e) {
     e.target.children[0].style.fill = `#FF6700`;
     e.target.children[1].style.color = `#FF6700`;
@@ -26,7 +20,7 @@ function FullScreen() {
   return (
     <div className={stlyes.flex}>
       <div className={stlyes.navBar}>
-        <h1>Fede's page</h1>
+        <h1>Fede's Shop</h1>
         <NavLink to="/home" onMouseEnter={(e) => onHover(e)} onMouseLeave={(e) => offHover(e)}>
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
             <title>home</title>
@@ -49,7 +43,6 @@ function FullScreen() {
           <span>Cart</span>
         </NavLink>
       </div>
-
       {name === "home" ? <Home /> : name === "shop" ? <ShopPage /> : name === undefined ? <Home /> : <Error />}
     </div>
   );

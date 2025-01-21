@@ -5,7 +5,7 @@
 
 .flex {
   display: flex;
-  gap: 4rem;
+  gap: 0rem;
   padding: 0.75rem;
   height: 100svh;
 }
@@ -24,6 +24,7 @@
 h1 {
   margin-bottom: 2rem;
   color: #f8f0e3;
+  white-space: nowrap;
 }
 
 a {

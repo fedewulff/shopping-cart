@@ -7,6 +7,29 @@ function ShopPage() {
   const [loadingProducts, setLoadingProducts] = useState(true);
   const [productQuantity, setProductQuantity] = useState([0, 0, 0, 0, 0, 0, 0, 0, 0]);
 
+  console.log(products);
+
+  function productMinusOne(e) {
+    const buttonIndex = e.target.id;
+    if (productQuantity[buttonIndex] > 0) {
+      const newProductQuantityArray = productQuantity.toSpliced(buttonIndex, 1, --productQuantity[buttonIndex]);
+      setProductQuantity(newProductQuantityArray);
+    }
+  }
+
+  function productPlusOne(e) {
+    const buttonIndex = e.target.id;
+    const newProductQuantityArray = productQuantity.toSpliced(buttonIndex, 1, ++productQuantity[buttonIndex]);
+    setProductQuantity(newProductQuantityArray);
+  }
+
+  function addToCartClick(e) {
+    {
+      console.log(e.target);
+      console.log(e.target.id);
+    }
+  }
+
   useEffect(() => {
     (async function getProductsFromAPI() {
       try {
@@ -16,7 +39,7 @@ function ShopPage() {
           throw new Error(`HTTP error: Status ${allNineProducts.status}`);
         }
         const allNineProductsJson = await allNineProducts.json();
-        console.log(allNineProductsJson);
+        // console.log(allNineProductsJson);
         setProducts(allNineProductsJson);
       } catch (error) {
         // setPokemon(null);
@@ -33,22 +56,28 @@ function ShopPage() {
     <div className={stlyes.fullContainer}>
       <h2 className={stlyes.h2style}>Products</h2>
       <div className={stlyes.grid}>
-        {products.map((product) => {
+        {products.map((product, index) => {
           return (
-            <div className={stlyes.card}>
+            <div className={stlyes.card} key={index}>
               <img src={product.image} alt="" />
               <div className={stlyes.cardInfo}>
                 <div className={stlyes.cardTitleAndCounter}>
-                  <h3>{product.title}</h3>
+                  <h3> {product.title}</h3>
                   <div>
                     <div className={stlyes.counterCountainer}>
-                      <button>&minus;</button>
-                      <div>0</div>
-                      <button>&#43;</button>
+                      <button id={index} onClick={(e) => productMinusOne(e)}>
+                        &minus;
+                      </button>
+                      <div>{productQuantity[index]}</div>
+                      <button id={index} onClick={(e) => productPlusOne(e)}>
+                        &#43;
+                      </button>
                     </div>
                   </div>
                 </div>
-                <button className={stlyes.addToCart}>Add to cart</button>
+                <button className={stlyes.addToCart} id={index} onClick={(e) => addToCartClick(e)}>
+                  Add to cart
+                </button>
               </div>
             </div>
           );

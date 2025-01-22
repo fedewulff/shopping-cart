@@ -1,18 +1,20 @@
+import { useState } from "react";
 import styles from "../cart.module.css";
 
 function Cart({ products }) {
+  console.log(products);
   return (
     <div className={styles.fullContainer}>
       {products.map((product, index) => {
-        // if (product.quantity === 0) return;
+        if (product.quantity === 0) return;
         return (
-          <div className={styles.cardAndButtonContainer}>
+          <div className={styles.cardAndButtonContainer} key={index}>
             <div className={styles.card}>
               <img src={product.image} alt="" className={styles.image} />
               <div className={styles.cardInfo}>
                 <h4>{product.title}</h4>
-                <div className={styles.quantity}>x 0</div>
-                <div className={styles.price}>${product.price}</div>
+                <div className={styles.quantity}>x {product.quantity}</div>
+                <div className={styles.price}>${product.price * product.quantity}</div>
               </div>
             </div>
             <button className={styles.button}>

@@ -37,7 +37,6 @@ function FullScreen() {
         const newArray = allNineProductsJson.map((product) => {
           return { ...product, quantity: 0 };
         });
-        console.log(newArray);
 
         setProducts(newArray);
       } catch (error) {
@@ -81,7 +80,7 @@ function FullScreen() {
       {name === "home" ? (
         <Home />
       ) : name === "shop" ? (
-        <ShopPage products={products} />
+        <ShopPage products={products} setProducts={setProducts} />
       ) : name === "cart" ? (
         <Cart products={products} />
       ) : name === undefined ? (

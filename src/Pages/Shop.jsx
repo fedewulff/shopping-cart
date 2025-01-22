@@ -1,8 +1,16 @@
 import { useState, useEffect } from "react";
 import stlyes from "../shop.module.css";
 
-function ShopPage({ products }) {
-  const [productQuantity, setProductQuantity] = useState([1, 1, 1, 1, 1, 1, 1, 1, 1]);
+function ShopPage({ products, setProducts }) {
+  const [productQuantity, setProductQuantity] = useState(quantityArray(products));
+
+  function quantityArray(allProducts) {
+    const array = [];
+    for (let i = 0; i < allProducts.length; i++) {
+      array.push(1);
+    }
+    return array;
+  }
 
   function productMinusOne(e) {
     const buttonIndex = e.target.id;
@@ -14,14 +22,18 @@ function ShopPage({ products }) {
 
   function productPlusOne(e) {
     const buttonIndex = e.target.id;
+
     const newProductQuantityArray = productQuantity.toSpliced(buttonIndex, 1, ++productQuantity[buttonIndex]);
     setProductQuantity(newProductQuantityArray);
   }
 
   function addToCartClick(e) {
-    {
-      console.log(e.target);
-      console.log(e.target.id);
+    const buttonIndex = e.target.id;
+    if (products[buttonIndex]) {
+      const newObject = { ...products[buttonIndex], quantity: products[buttonIndex].quantity + productQuantity[buttonIndex] };
+      const newProductsArray = products.toSpliced(buttonIndex, 1, newObject);
+
+      setProducts(newProductsArray);
     }
   }
 

@@ -7,7 +7,13 @@
 body {
   background: #fffaf0;
 }
-.onHover {
-  color: red;
-  fill: red;
+
+svg {
+  width: 2.5rem;
+  fill: #f8f0e3;
+}
+
+svg,
+span {
+  pointer-events: none;
 }

@@ -1,17 +1,12 @@
 import { useState, useEffect } from "react";
 import stlyes from "../shop.module.css";
 
-function ShopPage() {
-  const [products, setProducts] = useState(null);
-  const [errorMessage, setErrorMessage] = useState(null);
-  const [loadingProducts, setLoadingProducts] = useState(true);
-  const [productQuantity, setProductQuantity] = useState([0, 0, 0, 0, 0, 0, 0, 0, 0]);
-
-  console.log(products);
+function ShopPage({ products }) {
+  const [productQuantity, setProductQuantity] = useState([1, 1, 1, 1, 1, 1, 1, 1, 1]);
 
   function productMinusOne(e) {
     const buttonIndex = e.target.id;
-    if (productQuantity[buttonIndex] > 0) {
+    if (productQuantity[buttonIndex] > 1) {
       const newProductQuantityArray = productQuantity.toSpliced(buttonIndex, 1, --productQuantity[buttonIndex]);
       setProductQuantity(newProductQuantityArray);
     }
@@ -30,28 +25,6 @@ function ShopPage() {
     }
   }
 
-  useEffect(() => {
-    (async function getProductsFromAPI() {
-      try {
-        const allNineProducts = await fetch("https://fakestoreapi.com/products?limit=9", { mode: "cors" });
-        // console.log(allNineProducts);
-        if (!allNineProducts.ok) {
-          throw new Error(`HTTP error: Status ${allNineProducts.status}`);
-        }
-        const allNineProductsJson = await allNineProducts.json();
-        // console.log(allNineProductsJson);
-        setProducts(allNineProductsJson);
-      } catch (error) {
-        // setPokemon(null);
-        setErrorMessage(error);
-      } finally {
-        setLoadingProducts(false);
-      }
-    })();
-  }, []);
-
-  if (loadingProducts) return <p>Loading ...</p>;
-  if (errorMessage) return <p>An error happened.</p>;
   return (
     <div className={stlyes.fullContainer}>
       <h2 className={stlyes.h2style}>Products</h2>
@@ -59,25 +32,26 @@ function ShopPage() {
         {products.map((product, index) => {
           return (
             <div className={stlyes.card} key={index}>
-              <img src={product.image} alt="" />
+              <img src={product.image} alt="" className={stlyes.image} />
               <div className={stlyes.cardInfo}>
-                <div className={stlyes.cardTitleAndCounter}>
+                <div className={stlyes.cardTitleAndPrice}>
                   <h3> {product.title}</h3>
-                  <div>
-                    <div className={stlyes.counterCountainer}>
-                      <button id={index} onClick={(e) => productMinusOne(e)}>
-                        &minus;
-                      </button>
-                      <div>{productQuantity[index]}</div>
-                      <button id={index} onClick={(e) => productPlusOne(e)}>
-                        &#43;
-                      </button>
-                    </div>
-                  </div>
+                  <div className={stlyes.price}>${product.price}</div>
                 </div>
-                <button className={stlyes.addToCart} id={index} onClick={(e) => addToCartClick(e)}>
-                  Add to cart
-                </button>
+                <div className={stlyes.counterAndAddToCartContainer}>
+                  <div className={stlyes.counterCountainer}>
+                    <button id={index} className={stlyes.button} onClick={(e) => productMinusOne(e)}>
+                      &minus;
+                    </button>
+                    <div>{productQuantity[index]}</div>
+                    <button id={index} className={stlyes.button} onClick={(e) => productPlusOne(e)}>
+                      &#43;
+                    </button>
+                  </div>
+                  <button className={`${stlyes.addToCart} ${stlyes.button}`} id={index} onClick={(e) => addToCartClick(e)}>
+                    Add to cart
+                  </button>
+                </div>
               </div>
             </div>
           );

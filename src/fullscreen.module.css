@@ -36,13 +36,3 @@ a {
   font-size: 1.5rem;
   color: #f8f0e3;
 }
-
-svg {
-  width: 2.5rem;
-  fill: #f8f0e3;
-}
-
-svg,
-span {
-  pointer-events: none;
-}

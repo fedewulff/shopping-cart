@@ -31,6 +31,7 @@
   max-height: 100%;
   border: 0.5rem solid white;
 }
+
 .cardInfo {
   display: flex;
   flex-direction: column;
@@ -76,6 +77,8 @@ h3,
   padding: 0rem 0.5rem;
   font-family: font, sans-serif;
   font-weight: 600;
+  width: 2.5rem;
+  padding: 0 0.25rem;
 }
 .counterCountainer button {
   font-size: 1.5rem;
@@ -85,8 +88,21 @@ h3,
   font-size: 1.25rem;
   border-radius: 0.5rem;
   padding: 0.25rem;
-  box-shadow: 0px 5px 10px rgb(83, 83, 83);
+  box-shadow: 0px 4px 10px rgb(54, 54, 54);
   font-family: font, sans-serif;
+  transition: 0.2s;
+}
+.addToCart:hover {
+  transition: 0.2s;
+  /* transform: scale(1.05); */
+  background: #6aa121;
+  box-shadow: 0px 4px 15px rgb(54, 54, 54);
+}
+.addToCart:active {
+  transition: 0.2s;
+  /* transform: scale(1.05); */
+  background: #6aa121;
+  box-shadow: 0px 2px 2px rgb(54, 54, 54);
 }
 .button {
   border: none;

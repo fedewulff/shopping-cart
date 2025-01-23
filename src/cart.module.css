@@ -13,6 +13,7 @@
   flex-direction: column;
   gap: 2rem;
   height: fit-content;
+  width: 100%;
 }
 .cardAndButtonContainer {
   display: flex;
@@ -62,4 +63,38 @@
   border-radius: 1rem;
   cursor: pointer;
   box-shadow: 0px 5px 10px rgb(83, 83, 83);
+  transition: 0.2s;
 }
+
+.button:hover {
+  transition: 0.2s;
+  transform: scale(1.05);
+  box-shadow: 0px 5px 15px rgb(83, 83, 83);
+}
+
+.checkout {
+  padding: 1rem 1.5rem;
+  width: fit-content;
+  margin-left: auto;
+  background: #566d7e;
+  border: none;
+  font-family: font, "sans-serif";
+  color: #f8f0e3;
+  border-radius: 2rem;
+  font-size: 2rem;
+  cursor: pointer;
+  box-shadow: 0px 5px 10px rgb(83, 83, 83);
+  transition: 0.2s;
+}
+
+.checkout:hover {
+  transition: 0.2s;
+  transform: scale(1.05);
+  box-shadow: 0px 5px 15px rgb(83, 83, 83);
+  background: #6aa121;
+}
+/* .button:active {
+  transition: 0s;
+  transform: scale(1);
+  box-shadow: 0px 5px 10px rgb(83, 83, 83);
+} */

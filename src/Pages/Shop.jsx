@@ -32,7 +32,6 @@ function ShopPage({ products, setProducts }) {
     if (products[buttonIndex]) {
       const newObject = { ...products[buttonIndex], quantity: products[buttonIndex].quantity + productQuantity[buttonIndex] };
       const newProductsArray = products.toSpliced(buttonIndex, 1, newObject);
-
       setProducts(newProductsArray);
     }
   }

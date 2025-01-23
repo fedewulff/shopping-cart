@@ -54,7 +54,7 @@ function FullScreen() {
     <div className={stlyes.flex}>
       <div className={stlyes.navBar}>
         <h1>Fede's Shop</h1>
-        <NavLink to="/home" onMouseEnter={(e) => onHover(e)} onMouseLeave={(e) => offHover(e)}>
+        <NavLink to="/" onMouseEnter={(e) => onHover(e)} onMouseLeave={(e) => offHover(e)}>
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
             <title>home</title>
             <path d="M10,20V14H14V20H19V12H22L12,3L2,12H5V20H10Z" />
@@ -76,15 +76,14 @@ function FullScreen() {
           <span>Cart</span>
         </NavLink>
       </div>
+
       {/* <Test /> */}
-      {name === "home" ? (
+      {name === undefined ? (
         <Home />
       ) : name === "shop" ? (
         <ShopPage products={products} setProducts={setProducts} />
       ) : name === "cart" ? (
-        <Cart products={products} />
-      ) : name === undefined ? (
-        <Home />
+        <Cart products={products} setProducts={setProducts} />
       ) : (
         <Error />
       )}

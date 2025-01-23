@@ -7,7 +7,7 @@
   display: flex;
   gap: 0rem;
   padding: 0.75rem;
-  height: 100svh;
+  /* height: 100svh; */
 }
 
 .navBar {
@@ -19,7 +19,14 @@
   background: #566d7e;
   font-family: font, sans-serif;
   box-shadow: 0px 5px 10px rgb(83, 83, 83);
+  position: sticky;
+  top: 0.75rem;
+  height: 97svh;
 }
+/* .navBar2 {
+  width: 272px;
+  border: 1px solid blue;
+} */
 
 h1 {
   margin-bottom: 2rem;

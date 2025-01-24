@@ -1,0 +1,38 @@
+@font-face {
+  font-family: font;
+  src: url("../fonts/Lexend_Deca/LexendDeca-VariableFont_wght.ttf");
+}
+
+.relative {
+  width: 100%;
+  height: 100svh;
+  position: relative;
+}
+
+.fullContainer {
+  text-align: center;
+  border: 1rem solid #566d7e;
+  display: flex;
+  flex-direction: column;
+  padding: 3rem;
+  font-family: font, "sans-serif";
+  font-size: 3rem;
+  color: #566d7e;
+  border-radius: 2rem;
+  gap: 0.5rem;
+  width: fit-content;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.navLink {
+  display: inline;
+  font-size: 3rem;
+  color: #bab86c;
+  text-decoration: underline;
+}
+.navLink:hover {
+  color: #6aa121;
+}

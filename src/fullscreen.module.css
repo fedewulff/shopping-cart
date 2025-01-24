@@ -28,6 +28,19 @@
   border: 1px solid blue;
 } */
 
+.loading {
+  font-family: font, "sans-serif";
+  font-size: 6rem;
+  letter-spacing: 0.25rem;
+  color: #566d7e;
+  width: fit-content;
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
 h1 {
   margin-bottom: 2rem;
   color: #f8f0e3;
@@ -42,4 +55,12 @@ a {
   text-decoration: none;
   font-size: 1.5rem;
   color: #f8f0e3;
+}
+
+.quantity {
+  background: #bab86c;
+  border-radius: 2rem;
+  padding: 0.25rem 0.75rem;
+  min-width: 3.5rem;
+  text-align: center;
 }

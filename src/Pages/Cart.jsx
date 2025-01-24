@@ -2,8 +2,6 @@ import { useState } from "react";
 import styles from "../cart.module.css";
 
 function Cart({ products, setProducts }) {
-  console.log(products);
-
   function onClick(e) {
     const buttonIndex = e.target.id;
     const newObject = { ...products[buttonIndex], quantity: 0 };
